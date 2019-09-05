@@ -1,0 +1,25 @@
+{
+  "name": "backendpractice",
+  "version": "1.0.0",
+  "description": "first backend project with express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmustafa13/backendPractice.git"
+  },
+  "author": "gulam mustafa mansuri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmustafa13/backendPractice/issues"
+  },
+  "homepage": "https://github.com/gmustafa13/backendPractice#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.12",
+    "nodemon": "^1.19.2",
+    "pug": "^2.0.4"
+  }
+}
