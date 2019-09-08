@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname +'/public'));
 
 
 mongoose.connect(
@@ -16,7 +16,7 @@ mongoose.connect(
     console.log("Mongodb Connected");
   }
 );
-console.log(__dirname)
+
 
 // app.use("/", (req, res) => {
 //   res.sendFile('/index.html');
