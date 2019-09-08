@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html ng-app>
+<html >
 <head>
 
 <title>Contact List</title>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="myModule">
 
 
 <div class="container" ng-controller="myContact">
@@ -20,6 +20,13 @@
                 </tr>
 
             </thead>
+            <tbody>
+                <tr ng-repeat="contact in contactlist">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.contact}}</td>
+                </tr>
+            </tbody>
 
         </table>
 
@@ -27,7 +34,7 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
 <script src="controller/contactListCtrl.js"></script>
 </body>
 
