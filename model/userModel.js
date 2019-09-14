@@ -2,7 +2,7 @@ var user = require('../schema/User');
 var mongoose =require('mongoose');
 var express =require('express');
 var app= express();
-var callback= require('../callback')
+// var callback= require('../callback')
 
 var userModel={
     save:function(req,callback){
@@ -14,7 +14,8 @@ var userModel={
             if(err){
                 callback(err,[])
             }else{
-                app.use(callback,callback(null,saveData))
+                // app.use(callback,callback(null,saveData))
+                callback(null,saveData)
             }
         })
     //     console.log("userModel",userModel)
@@ -33,6 +34,15 @@ var userModel={
                 res.send(foundOne)
             }
         })
+    },
+    getAll:function(data,callback){
+user.find().exec(function(err,foundData){
+    if(err){
+        callback(err,[])
+    }else{
+        callback(null,foundData)
+    }
+})
     }
 }
 
