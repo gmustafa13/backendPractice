@@ -1,12 +1,44 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const jwt = require('jsonwebtoken')
 var schema = mongoose.Schema;
 var userSchema = new schema({
-  name: String,
-  age: {
-    type: Number
+  name: {
+    type: String,
+    required: true,
+    trim: true
   },
-  sex: String,
-  address: String,
-  mobileNumber: [String]
+  age: {
+    type: Number,
+    required: true
+  },
+  gender: {
+    type: String,
+    enum: ["male", "female"],
+    default: "male"
+  },
+  address: {
+    type: String
+  },
+  mobileNumber: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true
+  }
 });
+
+
+userSchema.pre("save", async function (next) {
+  const user = this
+  if (user.isModified('password')) {
+    console.log("modified", user.password)
+    user.password = await jwt.sign({
+      password: user.password
+    }, process.env.jwt_secret)
+  }
+  next()
+})
 module.exports = mongoose.model("user", userSchema);
